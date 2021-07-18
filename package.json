@@ -1,0 +1,34 @@
+{
+  "name": "amazon-price-tracker",
+  "version": "1.0.0",
+  "description": "Amazon product price tracker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -e js,html app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnimeAllstar/amazon-price-tracker.git"
+  },
+  "keywords": [
+    "amazon",
+    "price",
+    "track"
+  ],
+  "author": "Asad Dhorajiwala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnimeAllstar/amazon-price-tracker/issues"
+  },
+  "homepage": "https://github.com/AnimeAllstar/amazon-price-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.3",
+    "puppeteer": "^10.1.0",
+    "url-parse": "^1.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
