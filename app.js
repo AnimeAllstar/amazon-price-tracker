@@ -4,14 +4,14 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const routes = require('./src/routes/routes');
+const jobs = require('./src/utils/jobs');
 
 const port = 3000;
-
 const app = express();
 
 nunjucks.configure('src/views', {
     autoescape: true,
-    express: app
+    express: app,
 });
 
 app.use(routes);
@@ -26,6 +26,7 @@ app.use(routes);
         console.log('Connected!');
         app.listen(port, () => {
             console.log(`listening at http://localhost:${port}`);
+            jobs.start();
         });
     } catch (err) {
         console.log(err);
