@@ -5,7 +5,14 @@ const Product = require('../models/product');
 
 module.exports.addProduct = async (req, res) => {
     const url = new Url(req.query.url);
-    const asin = url.pathname.split('/').pop();
+    const urlParams = url.pathname.split('/');
+    let asin;
+    for (let i = 0; i < urlParams.length; i++) {
+        if (urlParams[i] === 'dp') {
+            asin = urlParams[++i];
+            break;
+        }
+    }
     const shortUrl = `${url.origin}/dp/${asin}`;
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
