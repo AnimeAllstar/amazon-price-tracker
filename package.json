@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Amazon product price tracker",
   "main": "app.js",
+  "engines": {
+    "node": "14.16.1"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon -e js,html app.js "
@@ -23,9 +26,13 @@
   },
   "homepage": "https://github.com/AnimeAllstar/amazon-price-tracker#readme",
   "dependencies": {
+    "amazon-buddy": "^2.2.37",
+    "cron": "^1.8.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongodb": "^4.0.0",
+    "mongoose": "^5.13.3",
     "nunjucks": "^3.2.3",
-    "puppeteer": "^10.1.0",
     "url-parse": "^1.5.1"
   },
   "devDependencies": {
