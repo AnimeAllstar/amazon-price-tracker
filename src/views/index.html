@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Amazon Price Tracker</title>
-    </head>
+{% block bodyTop %}
 
-    <body>
-        <h1>Amazon price tracker</h1>
-        <form action="/add-product" method="GET">
-            <label for="url">product URL</label>
-            <br>
-            <input type="text" id="url" name="url">
-            <br><br>
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<h1>Amazon price tracker</h1>
+<form action="/add-product" method="GET">
+    <label for="url">product URL</label>
+    <br>
+    <input type="text" id="url" name="url">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
 
-</html>
+{% endblock %}
+
+{% block bodyEnd %}
+
+<!-- Js -->
+<script src="/js/script.js"></script>
+
+{% endblock %}

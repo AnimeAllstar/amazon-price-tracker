@@ -5,7 +5,7 @@ const Product = require('../models/product');
 
 const CronJob = cron.CronJob;
 
-const updateLogsJob = new CronJob('* * * * *', async () => {
+const updateLogsJob = new CronJob('*/10 * * * *', async () => {
     const res = await Product.find({});
     console.log('Updating price log');
     await updatePriceLog(res);

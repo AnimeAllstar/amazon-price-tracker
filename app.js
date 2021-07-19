@@ -4,16 +4,26 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const routes = require('./src/routes/routes');
+const productRoutes = require('./src/routes/product');
+const errorController = require('./src/controllers/error');
+
 const jobs = require('./src/utils/jobs');
 
 const app = express();
 
+app.use(express.static('public'));
+
+// nunjucks is the templating engine
 nunjucks.configure('src/views', {
     autoescape: true,
     express: app,
 });
 
 app.use(routes);
+app.use(productRoutes);
+
+// request reaches here if none of the routes in appRoutes is matched
+app.use(errorController.render404);
 
 (async () => {
     try {
