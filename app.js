@@ -6,7 +6,6 @@ require('dotenv').config();
 const routes = require('./src/routes/routes');
 const jobs = require('./src/utils/jobs');
 
-const port = 3000;
 const app = express();
 
 nunjucks.configure('src/views', {
@@ -24,8 +23,8 @@ app.use(routes);
             useUnifiedTopology: true
         });
         console.log('Connected!');
-        app.listen(port, () => {
-            console.log(`listening at http://localhost:${port}`);
+        app.listen(process.env.PORT || 3000, () => {
+            console.log('listening on ' + (process.env.PORT ? `port ${process.env.PORT}` : 'http://localhost:3000/'));
             jobs.start();
         });
     } catch (err) {
