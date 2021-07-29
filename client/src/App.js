@@ -1,8 +1,11 @@
+import React from 'react';
+import ProductGrid from './components/ProductGrid';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Client</h1>
-    </div>
+    <React.Fragment>
+      <ProductGrid />
+    </React.Fragment>
   );
 }
 
