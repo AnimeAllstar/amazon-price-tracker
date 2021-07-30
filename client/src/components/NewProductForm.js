@@ -37,7 +37,7 @@ const NewProduct = () => {
     <React.Fragment>
       <Container fluid="xs" className="mt-4">
         <Form onSubmit={handleSubmit}>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center m-0">
             <Col xs="8" md="5">
               <Form.Label htmlFor="inlineFormInput" visuallyHidden>
                 Name
