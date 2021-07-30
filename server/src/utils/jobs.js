@@ -32,9 +32,11 @@ async function getLastestPrice(asin) {
     asin: asin,
     country: 'IN',
   });
+  const obj = details.result[0].price;
+  const price = obj.current_price == 0 ? obj.before_price : obj.current_price;
   return {
     timestamp: Date.now(),
-    price: details.result[0].price.current_price,
+    price: price,
   };
 }
 
