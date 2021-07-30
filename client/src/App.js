@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductGrid from './components/ProductGrid';
+import NewProductForm from './components/NewProductForm';
 
 function App() {
   return (
     <React.Fragment>
-      <ProductGrid />
+      <NewProductForm />
     </React.Fragment>
   );
 }
