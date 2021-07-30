@@ -41,6 +41,13 @@ module.exports.getProducts = async (req, res) => {
   res.json(products);
 };
 
+module.exports.getProduct = async (req, res) => {
+  const product = await Product.find({
+    asin: req.params.asin,
+  });
+  res.json(product);
+};
+
 function getAsin(url) {
   const urlParams = url.pathname.split('/');
   for (let i = 0; i < urlParams.length; i++) {
