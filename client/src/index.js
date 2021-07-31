@@ -1,9 +1,11 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ProductDetails from './components/ProductDetails';
+import Home from './pages/Home';
+import Product from './pages/Product';
+import NotFound from './pages/NotFound';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,13 +14,13 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/">
-          <App />
+          <Home />
         </Route>
         <Route path="/product/:asin">
-          <ProductDetails />
+          <Product />
         </Route>
         <Route path="*">
-          <h1> Not found (404) </h1>
+          <NotFound />
         </Route>
       </Switch>
     </Router>

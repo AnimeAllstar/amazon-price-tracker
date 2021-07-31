@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
+import ProductPriceChart from './ProductPriceChart';
 
 const ProductDetails = () => {
   const { asin } = useParams();
@@ -27,40 +27,9 @@ const ProductDetails = () => {
       </Link>
       <div className="text-center">
         <h3>{product.title}</h3>
-        {!isLoading ? <Chart {...product} /> : <p> loading </p>}
+        {!isLoading ? <ProductPriceChart {...product} /> : <p> loading </p>}
       </div>
     </div>
-  );
-};
-
-const Chart = ({ priceLog }) => {
-  const chartData = {
-    labels: priceLog.map((entry) => {
-      const date = new Date(parseInt(entry.timestamp));
-      const day = date.getUTCDate();
-      const month = date.getUTCMonth() + 1;
-      return `${day}/${month}`;
-    }),
-    datasets: [
-      {
-        label: 'Price',
-        data: priceLog.map((entry) => {
-          return entry.price;
-        }),
-        fill: false,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgba(255, 99, 132, 0.2)',
-      },
-    ],
-  };
-  return (
-    <Container fluid="xs">
-      <Row xs={1} lg={2} className="justify-content-md-center">
-        <Col lg={8}>
-          <Line data={chartData} />
-        </Col>
-      </Row>
-    </Container>
   );
 };
 

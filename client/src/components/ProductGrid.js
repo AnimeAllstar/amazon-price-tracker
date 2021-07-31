@@ -1,11 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Product from './Product';
-import { useState, useEffect } from 'react';
+import ProductCard from './ProductCard';
+import { useEffect } from 'react';
 
-const ProductGrid = () => {
-  const [products, setProducts] = useState([]);
-
+const ProductGrid = ({ products, setProducts }) => {
   const getProducts = async () => {
     const response = await fetch('http://localhost:8080/products');
     const productsJson = await response.json();
@@ -18,12 +16,12 @@ const ProductGrid = () => {
 
   return (
     <React.Fragment>
-      <Container fluid className="m-0">
-        <Row xs={1} md={2} lg={3} className="m-0">
+      <Container fluid className="m-0 mb-3">
+        <Row xs={1} sm={2} md={3} lg={4} className="m-0">
           {products.map((prod) => {
             return (
               <Col key={prod.asin}>
-                <Product {...prod} />
+                <ProductCard {...prod} />
               </Col>
             );
           })}

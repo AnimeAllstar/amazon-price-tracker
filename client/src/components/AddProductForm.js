@@ -1,21 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import Product from './Product';
+import { useState } from 'react';
 
-const NewProduct = () => {
-  const [products, setProducts] = useState([]);
+const AddProductForm = ({ products, setProducts }) => {
   const [url, setUrl] = useState('');
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  const getProducts = async () => {
-    const response = await fetch('http://localhost:8080/products');
-    const productsJson = await response.json();
-    setProducts(productsJson);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,19 +47,8 @@ const NewProduct = () => {
           </Row>
         </Form>
       </Container>
-      <Container fluid className="m-0">
-        <Row xs={1} sm={2} md={3} lg={4} className="m-0">
-          {products.map((prod) => {
-            return (
-              <Col key={prod.asin}>
-                <Product {...prod} />
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
     </React.Fragment>
   );
 };
 
-export default NewProduct;
+export default AddProductForm;
