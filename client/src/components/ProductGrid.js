@@ -4,15 +4,14 @@ import ProductCard from './ProductCard';
 import { useEffect } from 'react';
 
 const ProductGrid = ({ products, setProducts }) => {
-  const getProducts = async () => {
-    const response = await fetch('http://localhost:8080/products');
-    const productsJson = await response.json();
-    setProducts(productsJson);
-  };
-
   useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch('http://localhost:8080/products');
+      const productsJson = await response.json();
+      setProducts(productsJson);
+    };
     getProducts();
-  }, []);
+  }, [setProducts]);
 
   return (
     <React.Fragment>

@@ -9,16 +9,16 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [isLoading, setLoading] = useState(true);
 
-  const getProduct = async () => {
-    const response = await fetch(`http://localhost:8080/product/${asin}`);
-    const data = await response.json();
-    setProduct(data[0]);
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const getProduct = async () => {
+      const response = await fetch(`http://localhost:8080/product/${asin}`);
+      const data = await response.json();
+      setProduct(data[0]);
+      setLoading(false);
+    };
+
     getProduct();
-  }, []);
+  }, [asin]);
 
   return (
     <div className="m-2">
