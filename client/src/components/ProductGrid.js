@@ -2,13 +2,13 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
 import { useEffect } from 'react';
+import fetchDb from '../utils/fetchDb';
 
 const ProductGrid = ({ products, setProducts }) => {
   useEffect(() => {
     const getProducts = async () => {
-      const response = await fetch('http://localhost:8080/products');
-      const productsJson = await response.json();
-      setProducts(productsJson);
+      const data = await fetchDb('products');
+      setProducts(data);
     };
     getProducts();
   }, [setProducts]);
