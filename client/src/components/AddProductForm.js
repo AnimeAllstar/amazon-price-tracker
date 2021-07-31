@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import fetchDb from '../utils/fetchDb';
 
 const AddProductForm = ({ products, setProducts }) => {
   const [url, setUrl] = useState('');
@@ -14,8 +15,7 @@ const AddProductForm = ({ products, setProducts }) => {
         url: url,
       }),
     };
-    const response = await fetch('http://localhost:8080/add-product', options);
-    const data = await response.json();
+    const data = await fetchDb('add-product', options);
     setProducts((products) => {
       return [...products, data];
     });

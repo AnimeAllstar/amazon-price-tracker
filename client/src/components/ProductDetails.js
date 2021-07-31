@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import ProductPriceChart from './ProductPriceChart';
+import fetchDb from '../utils/fetchDb';
 
 const ProductDetails = () => {
   const { asin } = useParams();
@@ -11,8 +12,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const response = await fetch(`http://localhost:8080/product/${asin}`);
-      const data = await response.json();
+      const data = await fetchDb(`product/${asin}`, {});
       setProduct(data[0]);
       setLoading(false);
     };
