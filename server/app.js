@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const productRoutes = require('./src/routes/product');
+const authRoute = require('./src/routes/auth');
 const errorController = require('./src/controllers/error');
 
 const jobs = require('./src/utils/jobs');
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(productRoutes);
+app.use(authRoute);
 
 // request reaches here if none of the routes in appRoutes is matched
 app.use(errorController.notFound);
