@@ -27,6 +27,10 @@ const ProdutcSchema = new Schema({
       price: Number,
     },
   ],
+  refCount: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Product', ProdutcSchema);
