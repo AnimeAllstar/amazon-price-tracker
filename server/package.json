@@ -33,7 +33,7 @@
     "express": "^4.17.1",
     "mongodb": "^4.0.0",
     "mongoose": "^5.13.3",
-    "url-parse": "^1.5.1"
+    "url-parse": "^1.5.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
